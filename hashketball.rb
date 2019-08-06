@@ -59,7 +59,10 @@ def num_points_scored(player)
       end
     }
   }
+  binding.pry
 end
+
+num_points_scored("Kemba Walker")
 
 def shoe_size(player)
   game_hash.each {|i|
@@ -112,12 +115,13 @@ def player_stats(player)
 end
 
 
-def big_shoe_rebound
+def big_shoe_rebounds
   big_shoe_rebound = 0
   game_hash.each do |findshoe|
-    findshoe[1][:player].each do |(key, value)|
-      if value[:shoe] > big_shoe
+    findshoe[1][:players].each do |f_player|
+      if f_player[:shoe] > big_shoe_rebound
         big_shoe_rebound = value[:rebounds]
+      end
     end 
   end 
   return big_shoe_rebound
